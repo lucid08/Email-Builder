@@ -15,7 +15,7 @@ const App = () => {
       try {
         console.log(import.meta.env.VITE_BACKEND_BASE_URL);
         
-        const response = await axios.get(`https://email-builder-vert.vercel.app/getEmailLayout`);
+        const response = await axios.get(`https://cors-anywhere.herokuapp.com/https://email-builder-vert.vercel.app/getEmailLayout`);
         setLayout(response.data); // Store layout in state
       } catch (error) {
         console.log(import.meta.env.VITE_BACKEND_BASE_URL);
@@ -38,7 +38,7 @@ const App = () => {
 
     try {
       // Upload images
-      const uploadResponse = await axios.post(`https://email-builder-vert.vercel.app/uploadImage`, formData, {
+      const uploadResponse = await axios.post(`https://cors-anywhere.herokuapp.com/https://email-builder-vert.vercel.app/uploadImage`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -47,11 +47,11 @@ const App = () => {
 
       // Store email configuration
       const config = { title, content, footer, imageUrls: uploadResponse.data.imageUrls };
-      await axios.post(`${import.meta.env.VITE_BACKEND_BASE_URL}uploadEmailConfig`, config);
+      await axios.post(`https://cors-anywhere.herokuapp.com/https://email-builder-vert.vercel.app/uploadEmailConfig`, config);
 
       // Render and download template
       const templateResponse = await axios.post(
-        `${import.meta.env.VITE_BACKEND_BASE_URL}renderAndDownloadTemplate`,
+        `https://cors-anywhere.herokuapp.com/https://email-builder-vert.vercel.app/renderAndDownloadTemplate`,
         config,
         { responseType: 'text' }
       );
