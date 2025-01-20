@@ -15,7 +15,7 @@ const App = () => {
       try {
         console.log(import.meta.env.VITE_BACKEND_BASE_URL);
         
-        const response = await axios.get(`${import.meta.env.VITE_BACKEND_BASE_URL}getEmailLayout`);
+        const response = await axios.get(`https://email-builder-vert.vercel.app/getEmailLayout`);
         setLayout(response.data); // Store layout in state
       } catch (error) {
         console.log(import.meta.env.VITE_BACKEND_BASE_URL);
@@ -38,7 +38,7 @@ const App = () => {
 
     try {
       // Upload images
-      const uploadResponse = await axios.post(`${import.meta.env.VITE_BACKEND_BASE_URL}uploadImage`, formData, {
+      const uploadResponse = await axios.post(`https://email-builder-vert.vercel.app/uploadImage`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
