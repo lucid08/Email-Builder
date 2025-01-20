@@ -31,7 +31,7 @@ const EmailTemplate = mongoose.model("EmailTemplate", emailTemplateSchema);
 // Middleware
 app.use(express.json());
 const corsOptions = {
-  origin: 'https://email-builder-co22.vercel.app',  // Allow the frontend domain
+  origin: 'https://email-builder-co22.vercel.app', // The domain of your frontend
   methods: 'GET,POST',
   allowedHeaders: 'Content-Type,Authorization',
 };
