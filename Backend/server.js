@@ -42,6 +42,7 @@ app.use('/uploads', express.static('uploads'));
 
 // Multer Configuration for Image Uploads
 const storage = multer.diskStorage({
+
   destination: (req, file, cb) => {
     const uploadPath = "uploads/";
     if (!fs.existsSync(uploadPath)) {
