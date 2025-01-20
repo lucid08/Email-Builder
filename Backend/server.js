@@ -30,8 +30,9 @@ const EmailTemplate = mongoose.model("EmailTemplate", emailTemplateSchema);
 
 // Middleware
 app.use(express.json());
-app.options('*', cors());  // Enable pre-flight request handling
-
+app.use(cors({
+  origin: 'https://email-builder-co22.vercel.app'  // Allow your frontend's domain
+}));
 
 app.use('/uploads', express.static('uploads'));
 
