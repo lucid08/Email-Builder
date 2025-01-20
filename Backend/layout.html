@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+      /* Email specific styles */
+      body, table, td, a {
+          font-family: Arial, sans-serif;
+          color: #333;
+          text-decoration: none;
+      }
+
+      table {
+          border-collapse: collapse;
+          width: 100%;
+      }
+
+      img {
+          max-width: 100%;
+          height: auto;
+          display: block;
+      }
+
+      .email-wrapper {
+          width: 100%;
+          background-color: #f4f4f4;
+          padding: 20px 0;
+      }
+
+      .email-container {
+          width: 100%;
+          max-width: 600px;
+          margin: 0 auto;
+          background-color: #ffffff;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .email-header {
+          background-color: #007BFF;
+          color: #ffffff;
+          padding: 20px;
+          text-align: center;
+          border-radius: 8px 8px 0 0;
+      }
+
+      .email-header h1 {
+          margin: 0;
+          font-size: 26px;
+          font-weight: bold;
+      }
+
+      .email-body {
+          padding: 20px;
+      }
+
+      .email-body p {
+          font-size: 16px;
+          line-height: 1.6;
+          margin: 0 0 15px;
+      }
+
+      .image-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+          gap: 1rem;
+          margin-top: 20px;
+      }
+
+      .image-grid img {
+          border-radius: 8px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .email-footer {
+          text-align: center;
+          padding: 15px;
+          background-color: #333;
+          color: #fff;
+          border-radius: 0 0 8px 8px;
+          margin-top: 20px;
+      }
+
+      .email-footer p {
+          margin: 0;
+          font-size: 14px;
+      }
+
+      /* Mobile Friendly */
+      @media screen and (max-width: 600px) {
+          .email-header h1 {
+              font-size: 22px;
+          }
+
+          .email-body p {
+              font-size: 14px;
+          }
+      }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <table class="email-container" role="presentation">
+      <!-- Header -->
+      <tr>
+        <td class="email-header">
+          <h1>{{title}}</h1>
+        </td>
+      </tr>
+      <!-- Body -->
+      <tr>
+        <td class="email-body">
+          <p>{{content}}</p>
+          <div class="image-grid">
+            {{#imageUrls}}
+          </div>
+        </td>
+      </tr>
+      <!-- Footer -->
+      <tr>
+        <td class="email-footer">
+          <p>{{footer}}</p>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
