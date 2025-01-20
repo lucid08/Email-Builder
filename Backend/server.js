@@ -31,11 +31,13 @@ const EmailTemplate = mongoose.model("EmailTemplate", emailTemplateSchema);
 // Middleware
 app.use(express.json());
 const corsOptions = {
-  origin: 'https://email-builder-co22.vercel.app/',  // Replace with your frontend domain
-  methods: 'GET,POST,PUT,DELETE'
+  origin: 'https://email-builder-co22.vercel.app',  // Allow the frontend domain
+  methods: 'GET,POST',
+  allowedHeaders: 'Content-Type,Authorization',
 };
 
 app.use(cors(corsOptions));
+
 app.use('/uploads', express.static('uploads'));
 
 // Multer Configuration for Image Uploads

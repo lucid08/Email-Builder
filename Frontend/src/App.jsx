@@ -15,7 +15,7 @@ const App = () => {
       try {
         console.log(import.meta.env.VITE_BACKEND_BASE_URL);
         
-        const response = await axios.get(`${import.meta.env.VITE_BACKEND_BASE_URL}/getEmailLayout`);
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_BASE_URL}getEmailLayout`);
         setLayout(response.data); // Store layout in state
       } catch (error) {
         console.log(import.meta.env.VITE_BACKEND_BASE_URL);
@@ -38,7 +38,7 @@ const App = () => {
 
     try {
       // Upload images
-      const uploadResponse = await axios.post(`${import.meta.env.VITE_BACKEND_BASE_URL}/uploadImage`, formData, {
+      const uploadResponse = await axios.post(`${import.meta.env.VITE_BACKEND_BASE_URL}uploadImage`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -47,11 +47,11 @@ const App = () => {
 
       // Store email configuration
       const config = { title, content, footer, imageUrls: uploadResponse.data.imageUrls };
-      await axios.post(`${import.meta.env.VITE_BACKEND_BASE_URL}/uploadEmailConfig`, config);
+      await axios.post(`${import.meta.env.VITE_BACKEND_BASE_URL}uploadEmailConfig`, config);
 
       // Render and download template
       const templateResponse = await axios.post(
-        `${import.meta.env.VITE_BACKEND_BASE_URL}/renderAndDownloadTemplate`,
+        `${import.meta.env.VITE_BACKEND_BASE_URL}renderAndDownloadTemplate`,
         config,
         { responseType: 'text' }
       );
