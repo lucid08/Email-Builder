@@ -31,12 +31,11 @@ const EmailTemplate = mongoose.model("EmailTemplate", emailTemplateSchema);
 // Middleware
 app.use(express.json());
 const corsOptions = {
-  origin: 'https://email-builder-co22.vercel.app', // The domain of your frontend
-  methods: 'GET,POST',
-  allowedHeaders: 'Content-Type,Authorization',
+  origin: ['https://email-builder-co22.vercel.app', 'https://email-builder-vert.vercel.app/'],
+  methods: 'GET, POST',
+  allowedHeaders: 'Content-Type, Authorization',
 };
 
-app.use(cors(corsOptions));
 
 app.use('/uploads', express.static('uploads'));
 
