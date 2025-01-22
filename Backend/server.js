@@ -30,9 +30,7 @@ const EmailTemplate = mongoose.model("EmailTemplate", emailTemplateSchema);
 
 // Middleware
 app.use(express.json());
-app.use(cors({
-  origin: 'https://email-builder-co22.vercel.app'  // Allow your frontend's domain
-}));
+app.use(cors());
 
 app.use('/uploads', express.static('uploads'));
 
@@ -71,6 +69,8 @@ app.get("/getEmailLayout", (req, res) => {
 // 2. Upload Image
 app.post('/uploadImage', upload.array('images', 10), (req, res) => {
   try {
+    console.log("Hioiiiiiiiiiii");
+    
     const imageUrls = req.files.map((file) => `/uploads/${file.filename}`);
     console.log(imageUrls);
     
