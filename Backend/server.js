@@ -71,7 +71,7 @@ app.post('/uploadImage', upload.array('images', 10), (req, res) => {
   try {
     console.log("Hioiiiiiiiiiii");
     
-    const imageUrls = req.files.map((file) => `/uploads/${file.filename}`);
+    const imageUrls = req.file.filename
     console.log(imageUrls);
     
     res.status(200).json({ imageUrls });
